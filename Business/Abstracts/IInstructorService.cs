@@ -1,4 +1,6 @@
-﻿using Core.DataAccess.Paging;
+﻿using Business.Dtos.Requests;
+using Business.Dtos.Responses;
+using Core.DataAccess.Paging;
 using Entities.Concretes;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,8 @@ namespace Business.Abstracts
 {
     public interface IInstructorService
     {
-        Task<IPaginate<Instructor>> GetListAsync();
-        Task Add(Instructor instructor);
+        Task<IPaginate<GetListedInstructorResponse>> GetListAsync();
+        Task<CreatedInstructorResponse> Add(CreateInstructorRequest createInstructorRequest);
+
     }
 }

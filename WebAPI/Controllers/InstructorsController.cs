@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using Business.Dtos.Requests;
 using Entities.Concretes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,9 @@ namespace WebAPI.Controllers
             _instructorService = instructorService;
         }
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] Instructor instructor)
+        public async Task<IActionResult> Add([FromBody] CreateInstructorRequest createInstructorRequest)
         {
-            await _instructorService.Add(instructor); return Ok();
+            await _instructorService.Add(createInstructorRequest); return Ok();
         }
         [HttpGet]
         public async Task<IActionResult> GetList()

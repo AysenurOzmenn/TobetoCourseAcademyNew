@@ -16,8 +16,15 @@ namespace DataAccess.Contexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
-        public TobetoCourseAcademyContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions) { Configuration = configuration; Database.EnsureCreated(); }
+        public TobetoCourseAcademyContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions) 
+        { 
+            Configuration = configuration; 
+            Database.EnsureCreated(); 
+        }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) { modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        { 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); 
+        }
     }
 }
